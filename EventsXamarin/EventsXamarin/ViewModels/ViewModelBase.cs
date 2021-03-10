@@ -4,6 +4,7 @@ using Prism.Navigation;
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace EventsXamarin.ViewModels
@@ -12,11 +13,13 @@ namespace EventsXamarin.ViewModels
     {
         protected INavigationService NavigationService { get; private set; }
 
-        private string _title;
-        public string Title
+        public string Title { get; set; }
+        public bool IsBusy { get; set; }
+        public bool IsRefreshing { get; set; }
+
+        protected bool CanExecute()
         {
-            get { return _title; }
-            set { SetProperty(ref _title, value); }
+            return !IsBusy;
         }
 
         public ViewModelBase(INavigationService navigationService)

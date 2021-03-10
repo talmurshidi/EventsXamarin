@@ -1,8 +1,13 @@
+using EventsXamarin.AppResources.Localizations;
+using EventsXamarin.Helpers;
 using EventsXamarin.ViewModels;
 using EventsXamarin.Views;
 
 using Prism;
 using Prism.Ioc;
+
+using System.Globalization;
+using System.Threading;
 
 using Xamarin.Essentials.Implementation;
 using Xamarin.Essentials.Interfaces;
@@ -20,8 +25,25 @@ namespace EventsXamarin
         protected override async void OnInitialized()
         {
             InitializeComponent();
+            Xamarin.Essentials.VersionTracking.Track();
+            AppLanguage();
 
             await NavigationService.NavigateAsync("NavigationPage/MainPage");
+        }
+
+        protected void AppLanguage()
+        {
+            var cultureInfo = new CultureInfo(Constants.EnglishLang, false)
+            {
+                DateTimeFormat = DateTimeFormatInfo.InvariantInfo
+            };
+
+            Thread.CurrentThread.CurrentUICulture = cultureInfo;
+            Thread.CurrentThread.CurrentCulture = cultureInfo;
+
+            CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+
+            Lang.Culture = new CultureInfo(Constants.EnglishLang);
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -31,5 +53,7 @@ namespace EventsXamarin
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
         }
+
+
     }
 }
