@@ -1,6 +1,8 @@
 ﻿using Foundation;
+
 using Prism;
 using Prism.Ioc;
+
 using UIKit;
 
 
@@ -21,7 +23,12 @@ namespace EventsXamarin.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Rg.Plugins.Popup.Popup.Init();
+
             global::Xamarin.Forms.Forms.Init();
+
+            global::Xamarin.Forms.FormsMaterial.Init();
+
             LoadApplication(new App(new iOSInitializer()));
 
             return base.FinishedLaunching(app, options);
