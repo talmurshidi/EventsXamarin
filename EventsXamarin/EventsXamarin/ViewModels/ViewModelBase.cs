@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using Prism.AppModel;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
 
@@ -9,7 +10,7 @@ using System.Text;
 
 namespace EventsXamarin.ViewModels
 {
-    public class ViewModelBase : BindableBase, IInitialize, INavigationAware, IDestructible
+    public class ViewModelBase : BindableBase, IInitialize, INavigationAware, IDestructible, IPageLifecycleAware
     {
         protected INavigationService NavigationService { get; private set; }
 
@@ -17,7 +18,16 @@ namespace EventsXamarin.ViewModels
         public bool IsBusy { get; set; }
         public bool IsRefreshing { get; set; }
 
-        protected bool CanExecute()
+        public bool IsInternetConnected()
+        {
+            var current = Xamarin.Essentials.Connectivity.NetworkAccess;
+            if (current == Xamarin.Essentials.NetworkAccess.Internet)
+                return true;
+
+            return false;
+        }
+
+        public bool CanExecute()
         {
             return !IsBusy;
         }
@@ -45,6 +55,16 @@ namespace EventsXamarin.ViewModels
         public virtual void Destroy()
         {
 
+        }
+
+        public void OnAppearing()
+        {
+            //OnAppearing
+        }
+
+        public void OnDisappearing()
+        {
+            //OnDisappearing
         }
     }
 }
