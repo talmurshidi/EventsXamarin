@@ -1,0 +1,46 @@
+{
+  "events": [
+    {
+      "title": "Event 1",
+      "description": "This is a short description",
+      "date": "04/15/2021",
+      "is_attended": false,
+      "from_time": "10:00",
+      "to_time": "11:30",
+      "photo": "http://www.gssales.com/wp-content/uploads/2019/02/Events1.gif",
+      "address": {
+        "street": "",
+        "city": "",
+        "state": "",
+        "zip_code": "",
+        "country": ""
+      },
+      "attendance": [
+        {
+          "name": "Colleague Name"
+        }
+      ]
+    },
+    {
+      "title": "Event 2",
+      "description": "This is a short description",
+      "date": "04/20/2021",
+      "is_attended": true,
+      "from_time": "9:00",
+      "to_time": "11:30",
+      "photo": "http://www.gssales.com/wp-content/uploads/2019/02/Events1.gif",
+      "address": {
+        "street": "",
+        "city": "",
+        "state": "",
+        "zip_code": "",
+        "country": ""
+      },
+      "attendance": [
+        {
+          "name": "Colleague Name"
+        }
+      ]
+    }
+  ]
+}

@@ -6,9 +6,9 @@ using System.Text;
 
 namespace EventsXamarin.Models
 {
-    public class AttendanceModel : ModelBase
+    public class ResponseModel
     {
-        [JsonProperty("name")]
-        public string Name { get; set; }
+        [JsonProperty("events")]
+        public List<EventModel> Events { get; set; }
     }
 }
