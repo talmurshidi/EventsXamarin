@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="EventsXamarin.CustomControls.StateControl"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:lang="clr-namespace:EventsXamarin.AppResources.Localizations"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    x:Name="this"
+    HorizontalOptions="FillAndExpand"
+    VerticalOptions="FillAndExpand">
+
+    <ContentView.Resources>
+        <xct:StateToBooleanConverter x:Key="StateToBooleanConverter" />
+    </ContentView.Resources>
+
+    <ContentView.Content>
+
+        <Grid
+            x:Name="GridName"
+            xct:StateLayout.AnimateStateChanges="true"
+            xct:StateLayout.CurrentState="{Binding CurrentState, Source={x:Reference this}}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+
+            <xct:StateLayout.StateViews>
+
+                <!--  Loading state  -->
+                <xct:StateView
+                    HorizontalOptions="CenterAndExpand"
+                    StateKey="Loading"
+                    VerticalOptions="CenterAndExpand">
+                    <StackLayout>
+                        <ActivityIndicator IsRunning="{Binding CurrentState, Converter={StaticResource StateToBooleanConverter}, ConverterParameter={x:Static xct:LayoutState.Loading}}" />
+                    </StackLayout>
+                </xct:StateView>
+
+                <!--  Empty state  -->
+                <xct:StateView
+                    Margin="0,20,0,0"
+                    HorizontalOptions="CenterAndExpand"
+                    StateKey="Empty"
+                    VerticalOptions="StartAndExpand">
+                    <Label
+                        FontFamily="{DynamicResource MediumFont}"
+                        FontSize="Medium"
+                        HorizontalTextAlignment="Center"
+                        Text="{x:Static lang:Lang.No_Data_Lbl}" />
+                </xct:StateView>
+            </xct:StateLayout.StateViews>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

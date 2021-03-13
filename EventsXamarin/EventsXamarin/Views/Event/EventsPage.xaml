@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="EventsXamarin.Views.Event.EventsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customControls="clr-namespace:EventsXamarin.CustomControls"
+    xmlns:lang="clr-namespace:EventsXamarin.AppResources.Localizations"
+    xmlns:prism="http://prismlibrary.com"
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style
+                x:Key="DateTimeLblStyle"
+                TargetType="Label">
+                <Setter Property="FontFamily" Value="{DynamicResource MediumFont}" />
+                <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}" />
+                <Setter Property="TextColor" Value="{DynamicResource SecondaryColor}" />
+            </Style>
+
+            <Style
+                x:Key="EventTitleLblStyle"
+                TargetType="Label">
+                <Setter Property="FontFamily" Value="{DynamicResource BoldFont}" />
+                <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}" />
+                <Setter Property="MaxLines" Value="3" />
+                <Setter Property="LineBreakMode" Value="TailTruncation" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <NavigationPage.TitleView>
+        <StackLayout
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand">
+            <Label
+                FontSize="{DynamicResource LargeFontSize}"
+                HorizontalTextAlignment="Center"
+                Text="{Binding Title}"
+                TextColor="{DynamicResource TextColor}"
+                VerticalTextAlignment="Center" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+
+    <ContentPage.Content>
+
+        <Grid
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+
+            <RefreshView
+                Command="{Binding GetEventsCommand}"
+                IsRefreshing="{Binding IsRefreshing}">
+
+                <CollectionView
+                    ItemsSource="{Binding Events}"
+                    SelectionMode="Single">
+
+                    <CollectionView.EmptyView>
+                        <customControls:StateControl CurrentState="Empty" />
+                    </CollectionView.EmptyView>
+
+                    <CollectionView.Footer>
+                        <StackLayout HeightRequest="75" />
+                    </CollectionView.Footer>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+
+                            <SwipeView>
+                                <SwipeView.LeftItems>
+                                    <SwipeItems Mode="Execute">
+                                        <SwipeItem
+                                            BackgroundColor="{DynamicResource ErrorColor}"
+                                            Command="{Binding BindingContext.DeleteCommand, Source={RelativeSource AncestorType={x:Type CollectionView}, AncestorLevel=1}}"
+                                            CommandParameter="{Binding .}"
+                                            IconImageSource="ic_delete.png" />
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
+
+                                <!--  Content  -->
+                                <Grid
+                                    Padding="0,16,0,0"
+                                    BackgroundColor="{DynamicResource PageBackgroundColor}"
+                                    ColumnDefinitions="0.06*,*,0.06*">
+
+                                    <Grid
+                                        Grid.Column="1"
+                                        RowDefinitions="Auto,Auto">
+
+                                        <Grid
+                                            Grid.Row="0"
+                                            Padding="0,0,0,16"
+                                            ColumnDefinitions="0.6*,0.4*"
+                                            RowDefinitions="Auto,Auto">
+
+                                            <!--  Event details  -->
+                                            <StackLayout
+                                                Grid.Row="0"
+                                                Grid.Column="0"
+                                                Spacing="6">
+
+                                                <!--  Date and time  -->
+                                                <Label Style="{DynamicResource DateTimeLblStyle}">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{Binding Date, StringFormat='{0:MMM dd}'}" />
+                                                            <Span Text=" - " />
+                                                            <Span Text="{Binding FromTime, StringFormat='{0:hh\\:mm}'}" />
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+
+                                                <!--  Title  -->
+                                                <Label
+                                                    Style="{DynamicResource EventTitleLblStyle}"
+                                                    Text="{Binding Title}" />
+                                            </StackLayout>
+
+                                            <!--  photo  -->
+                                            <Frame
+                                                Grid.Row="0"
+                                                Grid.Column="1"
+                                                Padding="0"
+                                                HorizontalOptions="CenterAndExpand"
+                                                VerticalOptions="CenterAndExpand">
+                                                <Image Source="{Binding Photo}" />
+                                            </Frame>
+
+                                            <!--  Number of attendance  -->
+                                            <StackLayout
+                                                Grid.Row="1"
+                                                Grid.Column="0"
+                                                Orientation="Horizontal"
+                                                Spacing="4">
+
+                                                <Image
+                                                    IsVisible="{Binding IsAttended}"
+                                                    Source="ic_check_circle.png" />
+
+                                                <Label TextColor="{DynamicResource SecondaryTextColor}">
+                                                    <Label.FormattedText>
+                                                        <FormattedString>
+                                                            <Span Text="{Binding AttendanceList.Count}" />
+                                                            <Span Text=" " />
+                                                            <Span Text="{x:Static lang:Lang.Going_Lbl}" />
+                                                        </FormattedString>
+                                                    </Label.FormattedText>
+                                                </Label>
+                                            </StackLayout>
+                                        </Grid>
+                                        <BoxView
+                                            Grid.Row="1"
+                                            HorizontalOptions="FillAndExpand"
+                                            VerticalOptions="EndAndExpand" />
+                                    </Grid>
+                                </Grid>
+                            </SwipeView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+
+            <customControls:StateControl CurrentState="{Binding CurrentState}" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
