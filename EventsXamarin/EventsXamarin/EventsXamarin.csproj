@@ -10,12 +10,14 @@
     <None Remove="AppResources\Fonts\Roboto-Bold.ttf" />
     <None Remove="AppResources\Fonts\Roboto-Medium.ttf" />
     <None Remove="AppResources\Fonts\Roboto-Regular.ttf" />
+    <None Remove="events.json" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="AppResources\Fonts\Roboto-Bold.ttf" />
     <EmbeddedResource Include="AppResources\Fonts\Roboto-Medium.ttf" />
     <EmbeddedResource Include="AppResources\Fonts\Roboto-Regular.ttf" />
+    <EmbeddedResource Include="events.json" />
   </ItemGroup>
 
   <ItemGroup>
