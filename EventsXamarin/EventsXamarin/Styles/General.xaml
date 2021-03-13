@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="EventsXamarin.Styles.General"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:helpers="clr-namespace:EventsXamarin.Helpers">
+
+    <!--  Colors schema based on https://www.materialpalette.com/deep-orange/grey  -->
+    <Color x:Key="PrimaryColor">
+        #FF5722
+    </Color>
+    <Color x:Key="PrimaryDarkColor">
+        #E64A19
+    </Color>
+    <Color x:Key="PrimaryLightColor">
+        #FFCCBC
+    </Color>
+    <Color x:Key="SecondaryColor">
+        #794B8B
+    </Color>
+    <Color x:Key="AccentColor">
+        #9E9E9E
+    </Color>
+    <Color x:Key="PrimaryTextColor">
+        #212121
+    </Color>
+    <Color x:Key="TextColor">
+        #FFFFFF
+    </Color>
+    <Color x:Key="SecondaryTextColor">
+        #757575
+    </Color>
+    <Color x:Key="PlaceholderTextColor">
+        #757575
+    </Color>
+    <Color x:Key="DividerColor">
+        #BDBDBD
+    </Color>
+    <Color x:Key="PageBackgroundColor">
+        #FAFBFD
+    </Color>
+    <Color x:Key="ErrorColor">
+        #F8011A
+    </Color>
+    <Color x:Key="OverlayColor">
+        #262626
+    </Color>
+    <Color x:Key="FrameBackgroundColor">
+        #FFF
+    </Color>
+
+    <!--  Micro Font Size  -->
+    <OnIdiom
+        x:Key="MicroFontSize"
+        x:TypeArguments="x:Double"
+        Phone="{OnPlatform Android=12,
+                           iOS=12}"
+        Tablet="{OnPlatform Android=15,
+                            iOS=16}" />
+
+    <!--  Small Font Size  -->
+    <OnIdiom
+        x:Key="SmallFontSize"
+        x:TypeArguments="x:Double"
+        Phone="{OnPlatform Android=14,
+                           iOS=14}"
+        Tablet="{OnPlatform Android=18,
+                            iOS=18}" />
+
+    <!--  Medium Font Size  -->
+    <OnIdiom
+        x:Key="MediumFontSize"
+        x:TypeArguments="x:Double"
+        Phone="{OnPlatform Android=16,
+                           iOS=16}"
+        Tablet="{OnPlatform Android=20,
+                            iOS=20}" />
+
+    <!--  Large Font Size  -->
+    <OnIdiom
+        x:Key="LargeFontSize"
+        x:TypeArguments="x:Double"
+        Phone="{OnPlatform Android=22,
+                           iOS=21}"
+        Tablet="{OnPlatform Android=26,
+                            iOS=25}" />
+
+    <!--  XLarge Font Size  -->
+    <OnIdiom
+        x:Key="XLargeFontSize"
+        x:TypeArguments="x:Double"
+        Phone="{OnPlatform Android=25,
+                           iOS=27}"
+        Tablet="{OnPlatform Android=29,
+                            iOS=31}" />
+
+    <!--  Corner  -->
+    <x:Single x:Key="Corner">10</x:Single>
+
+    <!--  Font Regular  -->
+    <x:String x:Key="RegularFont">RegularFont</x:String>
+
+    <!--  Font Medium  -->
+    <x:String x:Key="MediumFont">MediumFont</x:String>
+
+    <!--  Font Bold  -->
+    <x:String x:Key="BoldFont">BoldFont</x:String>
+
+    <!--  NavigationPage Style  -->
+    <Style
+        ApplyToDerivedTypes="True"
+        TargetType="NavigationPage">
+        <Setter Property="BarBackgroundColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="BarTextColor" Value="{DynamicResource TextColor}" />
+        <Setter Property="FlowDirection" Value="LeftToRight" />
+        <Setter Property="Visual" Value="Material" />
+    </Style>
+
+    <!--  ContentPage Style  -->
+    <Style
+        ApplyToDerivedTypes="true"
+        TargetType="ContentPage">
+        <Setter Property="BackgroundColor" Value="{DynamicResource PageBackgroundColor}" />
+        <Setter Property="Visual" Value="Material" />
+        <Setter Property="FlowDirection" Value="LeftToRight" />
+    </Style>
+
+    <!--  FlyoutPage Style  -->
+    <Style
+        ApplyToDerivedTypes="True"
+        TargetType="FlyoutPage">
+        <Setter Property="FlowDirection" Value="LeftToRight" />
+        <Setter Property="FlyoutLayoutBehavior" Value="Popover" />
+        <Setter Property="Visual" Value="Material" />
+    </Style>
+
+    <!--  TabbedPage Style  -->
+    <Style
+        ApplyToDerivedTypes="True"
+        TargetType="TabbedPage">
+        <Setter Property="FlowDirection" Value="LeftToRight" />
+        <Setter Property="Visual" Value="Material" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="BarBackgroundColor" Value="#fff" />
+        <Setter Property="BarTextColor" Value="{DynamicResource SecondaryTextColor}" />
+        <Setter Property="SelectedTabColor" Value="{DynamicResource SecondaryTextColor}" />
+        <Setter Property="UnselectedTabColor" Value="{DynamicResource PrimaryTextColor}" />
+    </Style>
+
+    <!--  ContentView Style  -->
+    <Style
+        ApplyToDerivedTypes="true"
+        TargetType="ContentView">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="Visual" Value="Material" />
+        <Setter Property="FlowDirection" Value="LeftToRight" />
+    </Style>
+
+    <!--  Label Style  -->
+    <Style
+        ApplyToDerivedTypes="true"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="{DynamicResource RegularFont}" />
+        <Setter Property="FontSize" Value="{DynamicResource SmallFontSize}" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+    </Style>
+
+    <!--  Entry Style  -->
+    <Style
+        ApplyToDerivedTypes="true"
+        TargetType="Entry">
+        <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}" />
+        <Setter Property="FontFamily" Value="{DynamicResource MediumFont}" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+        <Setter Property="PlaceholderColor" Value="{DynamicResource PlaceholderTextColor}" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+    </Style>
+
+    <Style
+        ApplyToDerivedTypes="True"
+        TargetType="Editor">
+        <Setter Property="AutoSize" Value="TextChanges" />
+        <Setter Property="MinimumHeightRequest" Value="50" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+        <Setter Property="PlaceholderColor" Value="{DynamicResource PlaceholderTextColor}" />
+        <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}" />
+        <Setter Property="FontFamily" Value="{DynamicResource MediumFont}" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="IsTextPredictionEnabled" Value="False" />
+    </Style>
+
+    <!--  ListView Style  -->
+    <Style
+        ApplyToDerivedTypes="True"
+        TargetType="ListView">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="VerticalOptions" Value="FillAndExpand" />
+        <Setter Property="VerticalScrollBarVisibility" Value="Never" />
+        <Setter Property="HorizontalScrollBarVisibility" Value="Never" />
+    </Style>
+
+    <!--  CarouselView Style  -->
+    <Style
+        ApplyToDerivedTypes="True"
+        TargetType="CarouselView">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="HorizontalScrollBarVisibility" Value="Never" />
+        <Setter Property="VerticalScrollBarVisibility" Value="Never" />
+    </Style>
+
+    <!--  CollectionView Style  -->
+    <Style
+        ApplyToDerivedTypes="True"
+        TargetType="CollectionView">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="VerticalOptions" Value="FillAndExpand" />
+        <Setter Property="VerticalScrollBarVisibility" Value="Never" />
+        <Setter Property="HorizontalScrollBarVisibility" Value="Never" />
+    </Style>
+
+    <!--  ScrollView Style  -->
+    <Style
+        ApplyToDerivedTypes="True"
+        TargetType="ScrollView">
+        <Setter Property="VerticalScrollBarVisibility" Value="Never" />
+        <Setter Property="HorizontalScrollBarVisibility" Value="Never" />
+        <Setter Property="VerticalOptions" Value="FillAndExpand" />
+    </Style>
+
+    <!--  Button Style  -->
+    <Style
+        ApplyToDerivedTypes="true"
+        TargetType="Button">
+        <Setter Property="FontFamily" Value="{StaticResource MediumFont}" />
+        <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+        <Setter Property="FontSize" Value="{DynamicResource SmallFontSize}" />
+        <Setter Property="Padding" Value="8" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="CornerRadius" Value="{DynamicResource Corner}" />
+        <Setter Property="TextTransform" Value="Uppercase" />
+    </Style>
+
+    <!--  Picker Style  -->
+    <Style
+        ApplyToDerivedTypes="true"
+        TargetType="Picker">
+        <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="VerticalTextAlignment" Value="Center" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="TitleColor" Value="{DynamicResource PlaceholderTextColor}" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+    </Style>
+
+    <!--  Date Picker Style  -->
+    <Style
+        ApplyToDerivedTypes="True"
+        TargetType="DatePicker">
+        <Setter Property="FontFamily" Value="{StaticResource RegularFont}" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="Format" Value="{x:Static helpers:Constants.DateFormat}" />
+        <Setter Property="FontSize" Value="{StaticResource MediumFontSize}" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="TextColor" Value="{StaticResource PrimaryTextColor}" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="WidthRequest" Value="{OnPlatform iOS=116}" />
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+
+                    <VisualState x:Name="Disabled">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <!--  TimePicker Style  -->
+    <Style
+        ApplyToDerivedTypes="True"
+        TargetType="TimePicker">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}" />
+        <Setter Property="Format" Value="hh:mm tt" />
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+        <Setter Property="WidthRequest" Value="{OnPlatform iOS=110}" />
+    </Style>
+
+    <!--  BoxView Style  -->
+    <Style
+        ApplyToDerivedTypes="True"
+        TargetType="BoxView">
+        <Setter Property="Color" Value="{DynamicResource DividerColor}" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="HeightRequest" Value="1" />
+    </Style>
+
+    <!--  StackLayout Style  -->
+    <Style
+        ApplyToDerivedTypes="True"
+        TargetType="StackLayout">
+        <Setter Property="Spacing" Value="0" />
+    </Style>
+
+    <!--  ActivityIndicator Style  -->
+    <Style
+        ApplyToDerivedTypes="True"
+        TargetType="ActivityIndicator">
+        <Setter Property="Color" Value="{DynamicResource AccentColor}" />
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+        <Setter Property="HeightRequest" Value="50" />
+        <Setter Property="WidthRequest" Value="50" />
+        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+    </Style>
+
+    <!--  RefreshView Style  -->
+    <Style
+        ApplyToDerivedTypes="True"
+        TargetType="RefreshView">
+        <Setter Property="RefreshColor" Value="{DynamicResource AccentColor}" />
+    </Style>
+
+    <!--  SearchBar Style  -->
+    <Style
+        ApplyToDerivedTypes="True"
+        TargetType="SearchBar">
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="VerticalOptions" Value="Start" />
+        <Setter Property="PlaceholderColor" Value="{DynamicResource SecondaryTextColor}" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+        <Setter Property="FontSize" Value="{StaticResource MediumFontSize}" />
+    </Style>
+
+    <!--  Frame Style  -->
+    <Style
+        ApplyToDerivedTypes="True"
+        TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{DynamicResource FrameBackgroundColor}" />
+        <Setter Property="HasShadow" Value="False" />
+        <Setter Property="IsClippedToBounds" Value="True" />
+        <Setter Property="CornerRadius" Value="{DynamicResource Corner}" />
+    </Style>
+
+    <!--  Required Fields Style  -->
+    <Style
+        x:Key="LabelRequiredStyle"
+        TargetType="Label">
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="HorizontalTextAlignment" Value="Start" />
+        <Setter Property="FontSize" Value="{DynamicResource MicroFontSize}" />
+        <Setter Property="TextColor" Value="{DynamicResource ErrorColor}" />
+    </Style>
+
+    <!--  CheckBox Style  -->
+    <Style
+        ApplyToDerivedTypes="True"
+        TargetType="CheckBox">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="HeightRequest" Value="30" />
+        <Setter Property="WidthRequest" Value="30" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+        <Setter Property="Color" Value="{DynamicResource PrimaryColor}" />
+    </Style>
+
+    <!--  RadioButton Style  -->
+    <Style
+        ApplyToDerivedTypes="True"
+        TargetType="RadioButton">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="BorderColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+    </Style>
+
+</ResourceDictionary>
