@@ -1,6 +1,9 @@
 ﻿using EventsXamarin.Helpers;
 using EventsXamarin.Models;
 
+using Plugin.Toast;
+using Plugin.Toast.Abstractions;
+
 using Prism.AppModel;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -15,6 +18,8 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
+using Xamarin.CommunityToolkit.UI.Views;
+
 namespace EventsXamarin.ViewModels
 {
     public class ViewModelBase : BindableBase, IInitialize, INavigationAware, IDestructible, IPageLifecycleAware
@@ -24,6 +29,7 @@ namespace EventsXamarin.ViewModels
         public string Title { get; set; }
         public bool IsBusy { get; set; }
         public bool IsRefreshing { get; set; }
+        public LayoutState CurrentState { get; set; }
 
         public bool IsInternetConnected()
         {
@@ -32,6 +38,14 @@ namespace EventsXamarin.ViewModels
                 return true;
 
             return false;
+        }
+
+        public void ShowToastMessage(bool isSuccess, string message)
+        {
+            if (isSuccess)
+                CrossToastPopUp.Current.ShowToastSuccess(message, ToastLength.Short);
+            else
+                CrossToastPopUp.Current.ShowToastError(message, ToastLength.Short);
         }
 
         public async Task<List<EventModel>> GetJsonData()
@@ -84,12 +98,12 @@ namespace EventsXamarin.ViewModels
 
         }
 
-        public void OnAppearing()
+        public virtual void OnAppearing()
         {
             //OnAppearing
         }
 
-        public void OnDisappearing()
+        public virtual void OnDisappearing()
         {
             //OnDisappearing
         }

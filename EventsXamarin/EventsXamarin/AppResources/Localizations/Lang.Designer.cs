@@ -59,5 +59,86 @@ namespace EventsXamarin.AppResources.Localizations {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string Cancel_Btn {
+            get {
+                return ResourceManager.GetString("Cancel_Btn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Delete_Btn {
+            get {
+                return ResourceManager.GetString("Delete_Btn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Something went wrong.
+        /// </summary>
+        public static string Delete_Error_Message_Toast {
+            get {
+                return ResourceManager.GetString("Delete_Error_Message_Toast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You&apos;ll permanently lose your event data..
+        /// </summary>
+        public static string Delete_Event_Confirm_Message_Lbl {
+            get {
+                return ResourceManager.GetString("Delete_Event_Confirm_Message_Lbl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete Event?.
+        /// </summary>
+        public static string Delete_Event_Lbl {
+            get {
+                return ResourceManager.GetString("Delete_Event_Lbl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Event deleted successfully.
+        /// </summary>
+        public static string Delete_Success_Message_Toast {
+            get {
+                return ResourceManager.GetString("Delete_Success_Message_Toast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Events.
+        /// </summary>
+        public static string Event_Title {
+            get {
+                return ResourceManager.GetString("Event_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to going.
+        /// </summary>
+        public static string Going_Lbl {
+            get {
+                return ResourceManager.GetString("Going_Lbl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is no data.
+        /// </summary>
+        public static string No_Data_Lbl {
+            get {
+                return ResourceManager.GetString("No_Data_Lbl", resourceCulture);
+            }
+        }
     }
 }

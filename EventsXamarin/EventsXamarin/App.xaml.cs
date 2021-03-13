@@ -2,6 +2,7 @@ using EventsXamarin.AppResources.Localizations;
 using EventsXamarin.Helpers;
 using EventsXamarin.ViewModels;
 using EventsXamarin.Views;
+using EventsXamarin.Views.Event;
 
 using Prism;
 using Prism.Ioc;
@@ -28,7 +29,7 @@ namespace EventsXamarin
             Xamarin.Essentials.VersionTracking.Track();
             AppLanguage();
 
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync(nameof(NavigationPage) + "/" + nameof(EventsPage));
         }
 
         protected void AppLanguage()
@@ -52,6 +53,7 @@ namespace EventsXamarin
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
+            containerRegistry.RegisterForNavigation<EventsPage, EventsPageViewModel>();
         }
 
 

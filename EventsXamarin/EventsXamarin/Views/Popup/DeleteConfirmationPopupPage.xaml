@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage
+    x:Class="EventsXamarin.Views.Popup.DeleteConfirmationPopupPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:lang="clr-namespace:EventsXamarin.AppResources.Localizations"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    CloseWhenBackgroundIsClicked="True">
+
+    <popup:PopupPage.Resources>
+        <ResourceDictionary>
+
+            <Style
+                x:Key="TopLineStyle"
+                TargetType="BoxView">
+                <Setter Property="HeightRequest" Value="4" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="StartAndExpand" />
+                <Setter Property="Color" Value="{DynamicResource ErrorColor}" />
+            </Style>
+
+            <Style
+                x:Key="DeleteTitleLblStyle"
+                TargetType="Label">
+                <Setter Property="FontFamily" Value="{DynamicResource BoldFont}" />
+                <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}" />
+            </Style>
+
+            <Style
+                x:Key="DeleteMessageLblStyle"
+                TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource SecondaryTextColor}" />
+            </Style>
+
+            <Style
+                x:Key="DeleteBtnStyle"
+                TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{DynamicResource ErrorColor}" />
+                <Setter Property="FontFamily" Value="{DynamicResource MediumFont}" />
+                <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}" />
+            </Style>
+
+            <Style
+                x:Key="CancelBtnStyle"
+                TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+                <Setter Property="FontFamily" Value="{DynamicResource MediumFont}" />
+                <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}" />
+                <Setter Property="TextColor" Value="{DynamicResource SecondaryTextColor}" />
+                <Setter Property="BorderColor" Value="{DynamicResource DividerColor}" />
+                <Setter Property="BorderWidth" Value="2" />
+                <Setter Property="Visual" Value="Default" />
+            </Style>
+        </ResourceDictionary>
+    </popup:PopupPage.Resources>
+
+    <popup:PopupPage.Content>
+
+        <Grid
+            ColumnDefinitions="0.08*,*,0.08*"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand">
+
+            <Frame
+                Grid.Column="1"
+                Padding="0">
+
+                <Grid
+                    ColumnDefinitions="0.04*,*,0.04*"
+                    RowDefinitions="0.1*,*,0.06*">
+
+                    <BoxView
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="3"
+                        Style="{DynamicResource TopLineStyle}" />
+
+                    <StackLayout
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Spacing="12">
+
+                        <StackLayout
+                            Orientation="Horizontal"
+                            Spacing="8">
+
+                            <!--  Photo  -->
+                            <Image
+                                Scale="1.2"
+                                Source="ic_delete_forever.png"
+                                VerticalOptions="StartAndExpand" />
+
+                            <!--  Title and message  -->
+                            <StackLayout Spacing="8">
+                                <Label
+                                    Style="{DynamicResource DeleteTitleLblStyle}"
+                                    Text="{x:Static lang:Lang.Delete_Event_Lbl}" />
+                                <Label
+                                    Style="{DynamicResource DeleteMessageLblStyle}"
+                                    Text="{x:Static lang:Lang.Delete_Event_Confirm_Message_Lbl}" />
+                            </StackLayout>
+                        </StackLayout>
+
+                        <!--  Delete and cancel buttons  -->
+                        <Grid ColumnDefinitions="*,*">
+                            <Button
+                                Grid.Column="0"
+                                Command="{Binding CancelBtnCommand}"
+                                Style="{DynamicResource CancelBtnStyle}"
+                                Text="{x:Static lang:Lang.Cancel_Btn}" />
+                            <Button
+                                Grid.Column="1"
+                                Command="{Binding DeleteBtnCommand}"
+                                Style="{DynamicResource DeleteBtnStyle}"
+                                Text="{x:Static lang:Lang.Delete_Btn}" />
+                        </Grid>
+                    </StackLayout>
+                </Grid>
+            </Frame>
+        </Grid>
+    </popup:PopupPage.Content>
+</popup:PopupPage>
