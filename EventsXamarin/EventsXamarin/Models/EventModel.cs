@@ -14,6 +14,9 @@ namespace EventsXamarin.Models
         [JsonProperty("description")]
         public string Description { get; set; }
 
+        [JsonProperty("organization")]
+        public string Organization { get; set; }
+
         [JsonProperty("date")]
         public DateTime Date { get; set; }
 

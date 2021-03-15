@@ -1,13 +1,14 @@
 {
   "events": [
     {
-      "title": "Event 1",
-      "description": "This is a short description",
+      "title": "DS Lunch and Learn: Live Data Visualisation with Python",
+      "description": "Data Visualisation is important for data cleaning, exploring data structures, identifying trends, patterns and correlations that might not otherwise be detected.",
+      "organization": "IBM Developer",
       "date": "04/15/2021",
       "is_attended": false,
       "from_time": "10:00",
       "to_time": "11:30",
-      "photo": "http://www.gssales.com/wp-content/uploads/2019/02/Events1.gif",
+      "photo": "https://secure.meetupstatic.com/photos/event/9/9/c/1/highres_494199361.jpeg",
       "address": {
         "street": "",
         "city": "",
@@ -17,13 +18,19 @@
       },
       "attendance": [
         {
-          "name": "Colleague Name"
+          "id": "8645",
+          "name": "Dan"
+        },
+        {
+          "id": "8685",
+          "name": "John"
         }
       ]
     },
     {
-      "title": "Event 2",
-      "description": "This is a short description",
+      "title": "FREE! Computer Architecture Top-To-Bottom",
+      "description": "Starting with the “box” that is your computer, this session analyzes it, layer by layer, until we get down to the most primitive silicon transistors on the chips. As each layer gets pulled back, get an understanding of how components interact with one another, through the CPU, down to the littlest flip-flop.",
+      "organization": "Brussels Company",
       "date": "04/20/2021",
       "is_attended": true,
       "from_time": "9:00",
@@ -38,7 +45,43 @@
       },
       "attendance": [
         {
-          "name": "Colleague Name"
+          "id": "6723",
+          "name": "Sam"
+        },
+        {
+          "id": "7723",
+          "name": "Tamer"
+        },
+        {
+          "id": "7763",
+          "name": "Naruto"
+        }
+      ]
+    },
+    {
+      "title": "FREE! Computer Architecture Top-To-Bottom",
+      "description": "Starting with the “box” that is your computer, this session analyzes it, layer by layer, until we get down to the most primitive silicon transistors on the chips. As each layer gets pulled back, get an understanding of how components interact with one another, through the CPU, down to the littlest flip-flop.",
+      "organization": "Brussels Company",
+      "date": "04/20/2021",
+      "is_attended": false,
+      "from_time": "9:00",
+      "to_time": "11:30",
+      "photo": "http://www.gssales.com/wp-content/uploads/2019/02/Events1.gif",
+      "address": {
+        "street": "",
+        "city": "",
+        "state": "",
+        "zip_code": "",
+        "country": ""
+      },
+      "attendance": [
+        {
+          "id": "6723",
+          "name": "Sam"
+        },
+        {
+          "id": "7763",
+          "name": "Naruto"
         }
       ]
     }
