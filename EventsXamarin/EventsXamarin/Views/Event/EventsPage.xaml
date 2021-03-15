@@ -91,7 +91,7 @@
                                         <Grid
                                             Grid.Row="0"
                                             Padding="0,0,0,16"
-                                            ColumnDefinitions="0.6*,0.4*"
+                                            ColumnDefinitions="0.7*,0.3*"
                                             RowDefinitions="Auto,Auto">
 
                                             <!--  Event details  -->
@@ -122,9 +122,13 @@
                                                 Grid.Row="0"
                                                 Grid.Column="1"
                                                 Padding="0"
+                                                HeightRequest="{OnIdiom Default=60,
+                                                                        Tablet=70}"
                                                 HorizontalOptions="CenterAndExpand"
                                                 VerticalOptions="CenterAndExpand">
-                                                <Image Source="{Binding Photo}" />
+                                                <Image
+                                                    Aspect="AspectFill"
+                                                    Source="{Binding Photo}" />
                                             </Frame>
 
                                             <!--  Number of attendance  -->
