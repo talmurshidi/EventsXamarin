@@ -153,9 +153,9 @@ namespace EventsXamarin.AppResources.Localizations {
         /// <summary>
         ///   Looks up a localized string similar to No map application available to open.
         /// </summary>
-        public static string No_App_Map_Avilable_Message {
+        public static string No_App_Map_Available_Message {
             get {
-                return ResourceManager.GetString("No_App_Map_Avilable_Message", resourceCulture);
+                return ResourceManager.GetString("No_App_Map_Available_Message", resourceCulture);
             }
         }
         

@@ -50,7 +50,7 @@ namespace EventsXamarin.ViewModels
             catch (Exception ex)
             {
                 // No map application available to open
-                ShowToastMessage(false, Lang.No_App_Map_Avilable_Message);
+                ShowToastMessage(false, Lang.No_App_Map_Available_Message);
             }
         }
 
