@@ -41,7 +41,7 @@ namespace EventsXamarin.ViewModels
         {
             if (addressModel == null) return;
 
-            var location = new Location(47.645160, -122.1306032);
+            var location = new Location(addressModel.Lat, addressModel.Lon);
 
             try
             {

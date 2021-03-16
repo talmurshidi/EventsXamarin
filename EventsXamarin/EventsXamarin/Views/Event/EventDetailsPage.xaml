@@ -137,7 +137,13 @@
                                         <Label Style="{DynamicResource SubTitleDetailsLblStyle}">
                                             <Label.FormattedText>
                                                 <FormattedString>
-                                                    <Span Text="Street" />
+                                                    <Span Text="{Binding Event.Address.Street, StringFormat='{0},'}" />
+                                                    <Span Text=" " />
+                                                    <Span Text="{Binding Event.Address.State, StringFormat='{0},'}" />
+                                                    <Span Text=" " />
+                                                    <Span Text="{Binding Event.Address.City, StringFormat='{0},'}" />
+                                                    <Span Text=" " />
+                                                    <Span Text="{Binding Event.Address.Country}" />
                                                 </FormattedString>
                                             </Label.FormattedText>
                                         </Label>
