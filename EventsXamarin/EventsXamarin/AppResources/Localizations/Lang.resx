@@ -134,7 +134,7 @@
   <data name="People_Going_Lbl" xml:space="preserve">
     <value>People are going</value>
   </data>
-  <data name="No_App_Map_Avilable_Message" xml:space="preserve">
+  <data name="No_App_Map_Available_Message" xml:space="preserve">
     <value>No map application available to open</value>
   </data>
 </root>
