@@ -54,7 +54,8 @@
 
                 <CollectionView
                     ItemsSource="{Binding Events}"
-                    SelectionMode="Single">
+                    SelectionMode="None"
+                    VerticalOptions="FillAndExpand">
 
                     <CollectionView.EmptyView>
                         <customControls:StateControl CurrentState="Empty" />
@@ -158,6 +159,13 @@
                                             HorizontalOptions="FillAndExpand"
                                             VerticalOptions="EndAndExpand" />
                                     </Grid>
+
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding BindingContext.EventDetailsCommand, Source={RelativeSource AncestorType={x:Type CollectionView}, AncestorLevel=1}}"
+                                            CommandParameter="{Binding .}"
+                                            NumberOfTapsRequired="1" />
+                                    </Grid.GestureRecognizers>
                                 </Grid>
                             </SwipeView>
                         </DataTemplate>

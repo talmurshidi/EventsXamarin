@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="EventsXamarin.Views.Event.EventDetailsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customControls="clr-namespace:EventsXamarin.CustomControls"
+    xmlns:lang="clr-namespace:EventsXamarin.AppResources.Localizations"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <xct:InvertedBoolConverter x:Key="InvertedBoolConverter" />
+
+            <Style
+                x:Key="GridContainerLayout"
+                TargetType="Grid">
+                <Setter Property="RowDefinitions" Value="0.02*,*,0.06*" />
+                <Setter Property="ColumnDefinitions" Value="0.06*,*,0.06*" />
+            </Style>
+
+            <Style
+                x:Key="IconStyle"
+                TargetType="Image">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="VerticalOptions" Value="StartAndExpand" />
+            </Style>
+
+            <Style
+                x:Key="EventTitleLblStyle"
+                TargetType="Label">
+                <Setter Property="FontSize" Value="{DynamicResource LargeFontSize}" />
+                <Setter Property="FontFamily" Value="{DynamicResource MediumFont}" />
+            </Style>
+
+            <Style
+                x:Key="SubTitleLblStyle"
+                TargetType="Label">
+                <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}" />
+            </Style>
+
+            <Style
+                x:Key="SubTitleDetailsLblStyle"
+                TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource SecondaryTextColor}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <Grid>
+
+            <StackLayout>
+
+                <ScrollView>
+
+                    <StackLayout>
+
+                        <Frame
+                            BackgroundColor="{DynamicResource SecondaryColor}"
+                            CornerRadius="0"
+                            IsVisible="{Binding IsAttended}">
+                            <Label
+                                HorizontalOptions="CenterAndExpand"
+                                Text="{x:Static lang:Lang.Attended_Lbl}"
+                                TextColor="{DynamicResource TextColor}" />
+                        </Frame>
+
+                        <Grid Style="{DynamicResource GridContainerLayout}">
+
+                            <StackLayout
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                Spacing="12">
+
+                                <!--  Title  -->
+                                <Label
+                                    Style="{DynamicResource EventTitleLblStyle}"
+                                    Text="{Binding Event.Title}" />
+
+                                <Grid
+                                    ColumnDefinitions="0.1*,0.9*"
+                                    RowDefinitions="Auto,Auto"
+                                    RowSpacing="16">
+
+                                    <!--  Schedule icon  -->
+                                    <Image
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        Source="ic_schedule.png"
+                                        Style="{DynamicResource IconStyle}" />
+
+                                    <!--  Date and time  -->
+                                    <StackLayout
+                                        Grid.Row="0"
+                                        Grid.Column="1"
+                                        Spacing="4">
+
+                                        <!--  Date  -->
+                                        <Label
+                                            Style="{DynamicResource SubTitleLblStyle}"
+                                            Text="{Binding Event.Date, StringFormat='{0:dddd, MMMM dd}'}" />
+
+                                        <!--  Time  -->
+                                        <Label Style="{DynamicResource SubTitleDetailsLblStyle}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="{Binding Event.FromTime, StringFormat='{0:hh\\:mm}'}" />
+                                                    <Span Text=" - " />
+                                                    <Span Text="{Binding Event.ToTime, StringFormat='{0:hh\\:mm}'}" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+                                    </StackLayout>
+
+                                    <!--  Location icon  -->
+                                    <Image
+                                        Grid.Row="1"
+                                        Grid.Column="0"
+                                        Source="ic_location_on.png"
+                                        Style="{DynamicResource IconStyle}" />
+
+                                    <!--  Location  -->
+                                    <StackLayout
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        Spacing="4">
+
+                                        <!--  Organization  -->
+                                        <Label
+                                            Style="{DynamicResource SubTitleLblStyle}"
+                                            Text="{Binding Event.Organization}" />
+
+                                        <!--  Address  -->
+                                        <Label Style="{DynamicResource SubTitleDetailsLblStyle}">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Street" />
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
+
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding OpenMapCommand}"
+                                                CommandParameter="{Binding Event.Address}"
+                                                NumberOfTapsRequired="1" />
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                </Grid>
+
+                                <!--  Number of attendance and people list  -->
+                                <StackLayout Spacing="4">
+
+                                    <!--  Number of attendance  -->
+                                    <Label Style="{DynamicResource SubTitleLblStyle}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="{Binding Event.AttendanceList.Count}" />
+                                                <Span Text=" " />
+                                                <Span Text="{x:Static lang:Lang.People_Going_Lbl}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <!--  People list  -->
+                                    <ScrollView Orientation="Horizontal">
+                                        <StackLayout
+                                            BindableLayout.ItemsSource="{Binding Event.AttendanceList}"
+                                            Orientation="Horizontal"
+                                            Spacing="4">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <xct:AvatarView Text="{Binding Name}" />
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </StackLayout>
+                                    </ScrollView>
+                                </StackLayout>
+                            </StackLayout>
+                        </Grid>
+
+                        <!--  Photo  -->
+                        <Image
+                            Margin="0,8"
+                            Aspect="Fill"
+                            Source="{Binding Event.Photo}" />
+
+                        <!--  Description  -->
+                        <Grid Style="{DynamicResource GridContainerLayout}">
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                FontSize="{DynamicResource MediumFontSize}"
+                                Text="{Binding Event.Description}" />
+                        </Grid>
+                    </StackLayout>
+                </ScrollView>
+
+                <!--  Attend button  -->
+                <Frame
+                    CornerRadius="0"
+                    HorizontalOptions="FillAndExpand"
+                    IsVisible="{Binding IsAttended, Converter={StaticResource InvertedBoolConverter}}"
+                    VerticalOptions="EndAndExpand">
+
+                    <Button
+                        BackgroundColor="{DynamicResource PrimaryColor}"
+                        Command="{Binding AttendBtnCommand}"
+                        HorizontalOptions="EndAndExpand"
+                        Text="{x:Static lang:Lang.Attend_Btn}" />
+                </Frame>
+            </StackLayout>
+
+            <customControls:StateControl CurrentState="{Binding CurrentState}" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

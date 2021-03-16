@@ -61,6 +61,24 @@ namespace EventsXamarin.AppResources.Localizations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Attend.
+        /// </summary>
+        public static string Attend_Btn {
+            get {
+                return ResourceManager.GetString("Attend_Btn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You&apos;re going to this event.
+        /// </summary>
+        public static string Attended_Lbl {
+            get {
+                return ResourceManager.GetString("Attended_Lbl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Cancel_Btn {
@@ -133,11 +151,29 @@ namespace EventsXamarin.AppResources.Localizations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No map application available to open.
+        /// </summary>
+        public static string No_App_Map_Avilable_Message {
+            get {
+                return ResourceManager.GetString("No_App_Map_Avilable_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There is no data.
         /// </summary>
         public static string No_Data_Lbl {
             get {
                 return ResourceManager.GetString("No_Data_Lbl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to People are going.
+        /// </summary>
+        public static string People_Going_Lbl {
+            get {
+                return ResourceManager.GetString("People_Going_Lbl", resourceCulture);
             }
         }
     }

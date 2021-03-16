@@ -125,4 +125,16 @@
   <data name="No_Data_Lbl" xml:space="preserve">
     <value>There is no data</value>
   </data>
+  <data name="Attend_Btn" xml:space="preserve">
+    <value>Attend</value>
+  </data>
+  <data name="Attended_Lbl" xml:space="preserve">
+    <value>You're going to this event</value>
+  </data>
+  <data name="People_Going_Lbl" xml:space="preserve">
+    <value>People are going</value>
+  </data>
+  <data name="No_App_Map_Avilable_Message" xml:space="preserve">
+    <value>No map application available to open</value>
+  </data>
 </root>

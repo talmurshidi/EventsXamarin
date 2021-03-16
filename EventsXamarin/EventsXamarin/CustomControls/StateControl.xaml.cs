@@ -41,6 +41,7 @@ namespace EventsXamarin.CustomControls
         {
             InitializeComponent();
             Current = this;
+            this.IsVisible = false;
         }
     }
 }
