@@ -22,5 +22,11 @@ namespace EventsXamarin.Models
 
         [JsonProperty("country")]
         public string Country { get; set; }
+
+        [JsonProperty("lat")]
+        public double Lat { get; set; }
+
+        [JsonProperty("lon")]
+        public double Lon { get; set; }
     }
 }

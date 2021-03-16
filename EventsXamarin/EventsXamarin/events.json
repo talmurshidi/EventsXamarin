@@ -10,11 +10,13 @@
       "to_time": "11:30",
       "photo": "https://secure.meetupstatic.com/photos/event/9/9/c/1/highres_494199361.jpeg",
       "address": {
-        "street": "",
-        "city": "",
-        "state": "",
-        "zip_code": "",
-        "country": ""
+        "street": "1, Vuurkruisenlaan",
+        "city": "Halle-Vilvoorde",
+        "state": "Machelen",
+        "zip_code": "1830",
+        "country": "Belgium",
+        "lat": 50.907719549999996,
+        "lon": 4.4390465690223015
       },
       "attendance": [
         {
@@ -37,11 +39,13 @@
       "to_time": "11:30",
       "photo": "http://www.gssales.com/wp-content/uploads/2019/02/Events1.gif",
       "address": {
-        "street": "",
-        "city": "",
-        "state": "",
-        "zip_code": "",
-        "country": ""
+        "street": "1, Watertorenstraat",
+        "city": "Brecht",
+        "state": "Antwerp",
+        "zip_code": "2960",
+        "country": "Belgium",
+        "lat": 51.29274505,
+        "lon": 4.5724999
       },
       "attendance": [
         {
@@ -68,11 +72,13 @@
       "to_time": "11:30",
       "photo": "http://www.gssales.com/wp-content/uploads/2019/02/Events1.gif",
       "address": {
-        "street": "",
-        "city": "",
-        "state": "",
-        "zip_code": "",
-        "country": ""
+        "street": "170, Groenstraat",
+        "city": "Gavere",
+        "state": "Gent",
+        "zip_code": "9890",
+        "country": "Belgium",
+        "lat": 50.9458159,
+        "lon": 3.6959712
       },
       "attendance": [
         {
