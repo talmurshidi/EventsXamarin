@@ -54,6 +54,7 @@ namespace EventsXamarin
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<EventsPage, EventsPageViewModel>();
+            containerRegistry.RegisterForNavigation<EventDetailsPage, EventDetailsPageViewModel>();
         }
 
 

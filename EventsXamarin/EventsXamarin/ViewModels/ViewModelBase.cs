@@ -70,7 +70,10 @@ namespace EventsXamarin.ViewModels
 
         public bool CanExecute()
         {
-            return !IsBusy;
+            if (CurrentState == LayoutState.Loading || IsBusy)
+                return false;
+
+            return true;
         }
 
         public ViewModelBase(INavigationService navigationService)

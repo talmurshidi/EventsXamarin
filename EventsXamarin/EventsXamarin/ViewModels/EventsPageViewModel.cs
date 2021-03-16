@@ -1,5 +1,6 @@
 ﻿using EventsXamarin.AppResources.Localizations;
 using EventsXamarin.Models;
+using EventsXamarin.Views.Event;
 using EventsXamarin.Views.Popup;
 
 using Plugin.Toast;
@@ -26,6 +27,7 @@ namespace EventsXamarin.ViewModels
         public ObservableCollection<EventModel> Events { get; set; }
         public DelegateCommand<EventModel> DeleteCommand { get; set; }
         public DelegateCommand GetEventsCommand { get; set; }
+        public DelegateCommand<EventModel> EventDetailsCommand { get; set; }
 
         private async void OpenDeletePopupAsync(EventModel obj)
         {
@@ -72,6 +74,16 @@ namespace EventsXamarin.ViewModels
             Events = new ObservableCollection<EventModel>(eventsData);
         }
 
+        private async void EventDetailsAsync(EventModel eventModel)
+        {
+            if (eventModel == null) return;
+
+            var navParameter = new NavigationParameters();
+            navParameter.Add("EventDetails", eventModel);
+
+            await NavigationService.NavigateAsync(nameof(EventDetailsPage), navParameter);
+        }
+
         public async override void OnAppearing()
         {
             if (Events == null)
@@ -88,6 +100,7 @@ namespace EventsXamarin.ViewModels
             Title = Lang.Event_Title;
             DeleteCommand = new DelegateCommand<EventModel>(OpenDeletePopupAsync);
             GetEventsCommand = new DelegateCommand(RefreshEventsAsync);
+            EventDetailsCommand = new DelegateCommand<EventModel>(EventDetailsAsync);
         }
     }
 }
