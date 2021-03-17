@@ -97,6 +97,15 @@ namespace EventsXamarin.AppResources.Localizations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        public static string Close_Btn {
+            get {
+                return ResourceManager.GetString("Close_Btn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete_Btn {

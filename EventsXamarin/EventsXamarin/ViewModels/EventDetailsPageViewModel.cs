@@ -1,9 +1,12 @@
 ﻿using EventsXamarin.AppResources.Localizations;
 using EventsXamarin.Models;
+using EventsXamarin.Views.Event.Popup;
 
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
+
+using Rg.Plugins.Popup.Services;
 
 using System;
 using System.Collections.Generic;
@@ -19,6 +22,7 @@ namespace EventsXamarin.ViewModels
     {
         public DelegateCommand AttendBtnCommand { get; set; }
         public DelegateCommand<AddressModel> OpenMapCommand { get; set; }
+        public DelegateCommand<List<AttendanceModel>> ColleaguesPopupCommand { get; set; }
         public EventModel Event { get; set; }
         public bool IsAttended { get; set; }
 
@@ -54,6 +58,13 @@ namespace EventsXamarin.ViewModels
             }
         }
 
+        private async void OpenColleaguesPopupAsync(List<AttendanceModel> attendanceModels)
+        {
+            if (attendanceModels == null) return;
+
+            await PopupNavigation.Instance.PushAsync(new ColleaguesPopupPage(attendanceModels));
+        }
+
         public override void OnNavigatedTo(INavigationParameters parameters)
         {
             base.OnNavigatedTo(parameters);
@@ -70,6 +81,8 @@ namespace EventsXamarin.ViewModels
         {
             AttendBtnCommand = new DelegateCommand(AttendUserAsync, CanExecute);
             OpenMapCommand = new DelegateCommand<AddressModel>(OpenMapAsync);
+            ColleaguesPopupCommand = new DelegateCommand<List<AttendanceModel>>(OpenColleaguesPopupAsync);
         }
+
     }
 }

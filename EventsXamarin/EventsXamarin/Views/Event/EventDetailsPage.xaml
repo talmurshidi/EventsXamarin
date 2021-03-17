@@ -158,7 +158,10 @@
                                 </Grid>
 
                                 <!--  Number of attendance and people list  -->
-                                <StackLayout Spacing="4">
+                                <StackLayout
+                                    Padding="0,2"
+                                    HorizontalOptions="FillAndExpand"
+                                    Spacing="4">
 
                                     <!--  Number of attendance  -->
                                     <Label Style="{DynamicResource SubTitleLblStyle}">
@@ -172,18 +175,23 @@
                                     </Label>
 
                                     <!--  People list  -->
-                                    <ScrollView Orientation="Horizontal">
-                                        <StackLayout
-                                            BindableLayout.ItemsSource="{Binding Event.AttendanceList}"
-                                            Orientation="Horizontal"
-                                            Spacing="4">
-                                            <BindableLayout.ItemTemplate>
-                                                <DataTemplate>
-                                                    <xct:AvatarView Text="{Binding Name}" />
-                                                </DataTemplate>
-                                            </BindableLayout.ItemTemplate>
-                                        </StackLayout>
-                                    </ScrollView>
+                                    <StackLayout
+                                        BindableLayout.ItemsSource="{Binding Event.AttendanceList}"
+                                        Orientation="Horizontal"
+                                        Spacing="4">
+                                        <BindableLayout.ItemTemplate>
+                                            <DataTemplate>
+                                                <xct:AvatarView Text="{Binding Name}" />
+                                            </DataTemplate>
+                                        </BindableLayout.ItemTemplate>
+                                    </StackLayout>
+
+                                    <StackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding ColleaguesPopupCommand}"
+                                            CommandParameter="{Binding Event.AttendanceList}"
+                                            NumberOfTapsRequired="1" />
+                                    </StackLayout.GestureRecognizers>
                                 </StackLayout>
                             </StackLayout>
                         </Grid>
