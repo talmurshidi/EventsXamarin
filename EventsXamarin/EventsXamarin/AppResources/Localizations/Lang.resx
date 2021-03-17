@@ -146,4 +146,7 @@
   <data name="General_Error_Message" xml:space="preserve">
     <value>Something went wrong, please try again later</value>
   </data>
+  <data name="Close_Btn" xml:space="preserve">
+    <value>Close</value>
+  </data>
 </root>

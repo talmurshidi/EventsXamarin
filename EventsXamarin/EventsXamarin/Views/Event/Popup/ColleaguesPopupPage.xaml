@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<popup:PopupPage
+    x:Class="EventsXamarin.Views.Event.Popup.ColleaguesPopupPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:lang="clr-namespace:EventsXamarin.AppResources.Localizations"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+    CloseWhenBackgroundIsClicked="True">
+
+    <popup:PopupPage.Content>
+
+        <Grid
+            ColumnDefinitions="0.06*,*,0.06*"
+            RowDefinitions="0.2*,*,0.2*">
+
+            <Frame
+                Grid.Row="1"
+                Grid.Column="1">
+
+                <StackLayout>
+
+                    <CollectionView
+                        ItemsSource="{Binding Attendance}"
+                        SelectionMode="None">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+
+                                <StackLayout
+                                    Padding="0,10"
+                                    Orientation="Horizontal"
+                                    Spacing="14">
+
+                                    <xct:AvatarView Text="{Binding Name}" />
+                                    <Label Text="{Binding Name}" />
+                                </StackLayout>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+
+                    <Button
+                        BackgroundColor="{DynamicResource SecondaryColor}"
+                        Command="{Binding CloseCommand}"
+                        HorizontalOptions="CenterAndExpand"
+                        Text="{x:Static lang:Lang.Close_Btn}"
+                        VerticalOptions="EndAndExpand" />
+                </StackLayout>
+            </Frame>
+        </Grid>
+    </popup:PopupPage.Content>
+</popup:PopupPage>
