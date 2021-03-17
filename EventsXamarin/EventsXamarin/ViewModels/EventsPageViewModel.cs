@@ -1,5 +1,6 @@
 ﻿using EventsXamarin.AppResources.Localizations;
 using EventsXamarin.Models;
+using EventsXamarin.Views.CatFact;
 using EventsXamarin.Views.Event;
 using EventsXamarin.Views.Popup;
 
@@ -27,6 +28,7 @@ namespace EventsXamarin.ViewModels
         public ObservableCollection<EventModel> Events { get; set; }
         public DelegateCommand<EventModel> DeleteCommand { get; set; }
         public DelegateCommand GetEventsCommand { get; set; }
+        public DelegateCommand NavCatFactCommand { get; set; }
         public DelegateCommand<EventModel> EventDetailsCommand { get; set; }
 
         private async void OpenDeletePopupAsync(EventModel obj)
@@ -84,6 +86,11 @@ namespace EventsXamarin.ViewModels
             await NavigationService.NavigateAsync(nameof(EventDetailsPage), navParameter);
         }
 
+        private async void NavigateToCatFactsPageAsync()
+        {
+            await NavigationService.NavigateAsync(nameof(CatFactsPage));
+        }
+
         public async override void OnAppearing()
         {
             if (Events == null)
@@ -101,6 +108,7 @@ namespace EventsXamarin.ViewModels
             DeleteCommand = new DelegateCommand<EventModel>(OpenDeletePopupAsync);
             GetEventsCommand = new DelegateCommand(RefreshEventsAsync);
             EventDetailsCommand = new DelegateCommand<EventModel>(EventDetailsAsync);
+            NavCatFactCommand = new DelegateCommand(NavigateToCatFactsPageAsync);
         }
     }
 }

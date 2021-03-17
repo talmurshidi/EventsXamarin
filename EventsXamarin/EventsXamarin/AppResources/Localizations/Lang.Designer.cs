@@ -88,6 +88,15 @@ namespace EventsXamarin.AppResources.Localizations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cat Facts.
+        /// </summary>
+        public static string Cat_Facts_Title {
+            get {
+                return ResourceManager.GetString("Cat_Facts_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete_Btn {
@@ -142,11 +151,29 @@ namespace EventsXamarin.AppResources.Localizations {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Something went wrong, please try again later.
+        /// </summary>
+        public static string General_Error_Message {
+            get {
+                return ResourceManager.GetString("General_Error_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to going.
         /// </summary>
         public static string Going_Lbl {
             get {
                 return ResourceManager.GetString("Going_Lbl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please check internet connection, then try again.
+        /// </summary>
+        public static string Internet_Connection_Message {
+            get {
+                return ResourceManager.GetString("Internet_Connection_Message", resourceCulture);
             }
         }
         

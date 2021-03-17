@@ -1,4 +1,5 @@
-﻿using EventsXamarin.Helpers;
+﻿using EventsXamarin.AppResources.Localizations;
+using EventsXamarin.Helpers;
 using EventsXamarin.Models;
 
 using Plugin.Toast;
@@ -37,6 +38,7 @@ namespace EventsXamarin.ViewModels
             if (current == Xamarin.Essentials.NetworkAccess.Internet)
                 return true;
 
+            ShowToastMessage(false, Lang.Internet_Connection_Message);
             return false;
         }
 

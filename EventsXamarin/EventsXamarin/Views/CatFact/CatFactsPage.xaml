@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="EventsXamarin.Views.CatFact.CatFactsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customControls="clr-namespace:EventsXamarin.CustomControls"
+    xmlns:prism="http://prismlibrary.com"
+    Title="{Binding Title}"
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+    <ContentPage.Resources>
+        <ResourceDictionary />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <Grid>
+
+            <RefreshView
+                Command="{Binding RefreshCatFactsCommand}"
+                IsRefreshing="{Binding IsRefreshing}">
+
+                <CollectionView
+                    ItemsSource="{Binding CatFacts}"
+                    SelectionMode="None">
+
+                    <CollectionView.EmptyView>
+                        <customControls:StateControl CurrentState="Empty" />
+                    </CollectionView.EmptyView>
+
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+
+                            <Grid
+                                Padding="0,16,0,0"
+                                ColumnDefinitions="0.06*,*,0.06*">
+                                <StackLayout
+                                    Grid.Column="1"
+                                    Spacing="6">
+                                    <Label Text="{Binding Text}" />
+                                    <BoxView HorizontalOptions="FillAndExpand" />
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+
+            <customControls:StateControl CurrentState="{Binding CurrentState}" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
