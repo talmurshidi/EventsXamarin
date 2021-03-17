@@ -29,6 +29,13 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding NavCatFactCommand}"
+            Order="Secondary"
+            Text="{x:Static lang:Lang.Cat_Facts_Title}" />
+    </ContentPage.ToolbarItems>
+
     <NavigationPage.TitleView>
         <StackLayout
             HorizontalOptions="CenterAndExpand"

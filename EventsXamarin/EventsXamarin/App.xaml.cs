@@ -2,6 +2,7 @@ using EventsXamarin.AppResources.Localizations;
 using EventsXamarin.Helpers;
 using EventsXamarin.ViewModels;
 using EventsXamarin.Views;
+using EventsXamarin.Views.CatFact;
 using EventsXamarin.Views.Event;
 
 using Prism;
@@ -55,6 +56,7 @@ namespace EventsXamarin
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<EventsPage, EventsPageViewModel>();
             containerRegistry.RegisterForNavigation<EventDetailsPage, EventDetailsPageViewModel>();
+            containerRegistry.RegisterForNavigation<CatFactsPage, CatFactsPageViewModel>();
         }
 
 
