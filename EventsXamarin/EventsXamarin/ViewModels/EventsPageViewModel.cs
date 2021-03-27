@@ -1,4 +1,5 @@
 ﻿using EventsXamarin.AppResources.Localizations;
+using EventsXamarin.Helpers;
 using EventsXamarin.Models;
 using EventsXamarin.Views.CatFact;
 using EventsXamarin.Views.Event;
@@ -81,7 +82,7 @@ namespace EventsXamarin.ViewModels
             if (eventModel == null) return;
 
             var navParameter = new NavigationParameters();
-            navParameter.Add("EventDetails", eventModel);
+            navParameter.Add(Constants.EventDetails, eventModel);
 
             await NavigationService.NavigateAsync(nameof(EventDetailsPage), navParameter);
         }

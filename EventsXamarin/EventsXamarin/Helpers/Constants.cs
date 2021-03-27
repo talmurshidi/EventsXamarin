@@ -8,6 +8,9 @@ namespace EventsXamarin.Helpers
     {
         public const string DateFormat = "MM/dd/yyyy";
 
+        // Navigation parameter
+        public const string EventDetails = "EventDetails";
+
         //Language abbreviation
         public const string EnglishLang = "en";
 

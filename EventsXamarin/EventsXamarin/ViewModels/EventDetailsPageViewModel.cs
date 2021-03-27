@@ -1,4 +1,5 @@
 ﻿using EventsXamarin.AppResources.Localizations;
+using EventsXamarin.Helpers;
 using EventsXamarin.Models;
 using EventsXamarin.Views.Event.Popup;
 
@@ -69,9 +70,9 @@ namespace EventsXamarin.ViewModels
         {
             base.OnNavigatedTo(parameters);
 
-            if (parameters.ContainsKey("EventDetails"))
+            if (parameters.ContainsKey(Constants.EventDetails))
             {
-                Event = parameters.GetValue<EventModel>("EventDetails");
+                Event = parameters.GetValue<EventModel>(Constants.EventDetails);
                 IsAttended = Event.IsAttended;
             }
         }
